@@ -235,7 +235,7 @@ void wczytaj_adresatow_z_pliku_wszystkich_u (vector <Kontakt> &adresaci_wszystki
     }
 }
 
-void  wyswietl_adresatow (vector <Kontakt> adresaci)
+void  wyswietl_adresatow (vector <Kontakt> &adresaci)
 {
     int liczba_kontaktow =adresaci.size();
 
@@ -621,12 +621,14 @@ int logowanie(vector <Uzytkownik> &uzytkownicy)
     return 0;
 }
 
-menu_logowania (vector <Uzytkownik> &uzytkownicy, int id_uzytkownika)
+menu_logowania (vector <Uzytkownik> &uzytkownicy, int id_zalogowanego, vector <Kontakt> &adresaci)
 {
     int max_id_uzytkownika;
     char wybor;
 
-    while (id_uzytkownika ==0)
+    adresaci.clear();
+
+    while (id_zalogowanego ==0)
     {
         system ("cls");
         cout <<"---KSIAZKA ADRESOWA---" <<endl;
@@ -642,13 +644,13 @@ menu_logowania (vector <Uzytkownik> &uzytkownicy, int id_uzytkownika)
             {
                 max_id_uzytkownika = uzytkownicy[liczba_uzytkownikow-1].id_uzytkownika;
 
-                id_uzytkownika=rejestracja(uzytkownicy, max_id_uzytkownika);
+                id_zalogowanego=rejestracja(uzytkownicy, max_id_uzytkownika);
             }
-            else  id_uzytkownika=rejestracja(uzytkownicy, 0);
+            else  id_zalogowanego=rejestracja(uzytkownicy, 0);
         }
         else if (wybor =='2')
         {
-            id_uzytkownika =logowanie(uzytkownicy);
+            id_zalogowanego =logowanie(uzytkownicy);
         }
         else if (wybor =='9')
         {
@@ -658,10 +660,13 @@ menu_logowania (vector <Uzytkownik> &uzytkownicy, int id_uzytkownika)
         {
             cerr << "Nie ma takiej opcji do wyboru. Wybierz jeszcze raz";
             Sleep(1000);
-            id_uzytkownika =0;
+            id_zalogowanego =0;
         }
+
+        wczytaj_adresatow_z_pliku_zalogowanego_u (adresaci, id_zalogowanego);
+
     }
-    return id_uzytkownika;
+    return id_zalogowanego;
 }
 
 void zmianaHasla (vector <Uzytkownik> &uzytkownicy,int idZalogowanego)
@@ -672,7 +677,7 @@ void zmianaHasla (vector <Uzytkownik> &uzytkownicy,int idZalogowanego)
 
     for (int i=0; i<iloscUzytkownikow; i++)
     {
-        if ( uzytkownicy[i].id_uzytkownika==idZalogowanego)
+        if (uzytkownicy[i].id_uzytkownika==idZalogowanego)
         {
             cout <<"Podaj nowe haslo: "<<endl;
             cin >> haslo;
@@ -747,9 +752,9 @@ int main()
 
     wczytaj_uzytkownikow_z_pliku (uzytkownicy);
 
-    id_zalogowanego = menu_logowania (uzytkownicy, id_zalogowanego);
+    id_zalogowanego = menu_logowania (uzytkownicy, id_zalogowanego, adresaci);
 
-    wczytaj_adresatow_z_pliku_zalogowanego_u (adresaci, id_zalogowanego);
+  // wczytaj_adresatow_z_pliku_zalogowanego_u (adresaci, id_zalogowanego);
 
     while (true)
     {
@@ -816,34 +821,15 @@ int main()
         case '7':
         {
             system ("cls");
-            cout <<"1. Zmiana hasla"<<endl;
-            cout <<"2. Wyloguj"<<endl;
-            cout <<"3. Wroc do menu glownego"<<endl;
-            cin >>wybor;
+            zmianaHasla (uzytkownicy, id_zalogowanego);
 
-            wybor=getch();
-
-            if (wybor =='1')
-            {
-                zmianaHasla (uzytkownicy, id_zalogowanego);
-            }
-            else if (wybor =='2')
-            {
-                id_zalogowanego =0;
-                id_zalogowanego = menu_logowania (uzytkownicy, id_zalogowanego);
-            }
-            else if (wybor =='3')
-            {
-                system ("cls");
-                continue;
-            }
         }
         break;
 
         case '8':
         {
             id_zalogowanego =0;
-            id_zalogowanego = menu_logowania (uzytkownicy, id_zalogowanego);
+            id_zalogowanego = menu_logowania (uzytkownicy, id_zalogowanego, adresaci);
         }
         break;
 
