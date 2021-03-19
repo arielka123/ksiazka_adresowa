@@ -75,7 +75,7 @@ void zapisz_do_pliku_adresatow (Kontakt nowy_adresat)
     }
 }
 
-Kontakt utworz_kontakt (int max_id, int id_uzytkownika)
+int utworz_kontakt (int max_id, int id_uzytkownika, vector <Kontakt> &adresaci)
 {
     string imie, nazwisko, adres, email, nr_telefonu;
 
@@ -102,8 +102,9 @@ Kontakt utworz_kontakt (int max_id, int id_uzytkownika)
     nowy_adresat.id_uzytkownika = id_uzytkownika;
 
     zapisz_do_pliku_adresatow (nowy_adresat);
+    adresaci.push_back(nowy_adresat);
 
-    return nowy_adresat;
+    return max_id +1;
 }
 
 void wczytaj_adresatow_z_pliku_zalogowanego_u (vector <Kontakt> &adresaci, int id_zalogowanego)
@@ -408,7 +409,8 @@ vector <Kontakt > edycja_adresata(vector <Kontakt> adresaci)
         cin>> imie;
         imie =zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
         adresaci[pozycja].imie=imie;
-    } break;
+    }
+    break;
 
     case '2':
     {
@@ -449,9 +451,7 @@ vector <Kontakt > edycja_adresata(vector <Kontakt> adresaci)
     }
     break;
     }
-
     plik.close();
-
     return adresaci;
 }
 
@@ -662,9 +662,7 @@ menu_logowania (vector <Uzytkownik> &uzytkownicy, int id_zalogowanego, vector <K
             Sleep(1000);
             id_zalogowanego =0;
         }
-
         wczytaj_adresatow_z_pliku_zalogowanego_u (adresaci, id_zalogowanego);
-
     }
     return id_zalogowanego;
 }
@@ -740,6 +738,23 @@ void zapisz_zmiany_uzytkownika ( vector <Kontakt> &adresaci, vector <Kontakt> &a
     adresaci_wszystkich_u.clear();
 }
 
+int wyznacz_max_id_adresata (vector <Kontakt> &adresaci_wszystkich_u)
+{
+    int maksymalne_id_adresata;
+    wczytaj_adresatow_z_pliku_wszystkich_u (adresaci_wszystkich_u);
+    int ilosc_adresatow = adresaci_wszystkich_u.size();
+
+    cout <<"ilosc_adresatow "<<ilosc_adresatow<<endl;
+
+    if (ilosc_adresatow !=0)
+    {
+        maksymalne_id_adresata = adresaci_wszystkich_u[ilosc_adresatow -1].id_adresata;
+    }
+    else maksymalne_id_adresata = 0;
+
+    adresaci_wszystkich_u.clear();
+    return maksymalne_id_adresata;
+}
 
 int main()
 {
@@ -751,10 +766,8 @@ int main()
     int max_id_adresata = 0;
 
     wczytaj_uzytkownikow_z_pliku (uzytkownicy);
-
     id_zalogowanego = menu_logowania (uzytkownicy, id_zalogowanego, adresaci);
-
-  // wczytaj_adresatow_z_pliku_zalogowanego_u (adresaci, id_zalogowanego);
+    max_id_adresata = wyznacz_max_id_adresata (adresaci_wszystkich_u);
 
     while (true)
     {
@@ -777,15 +790,9 @@ int main()
         {
         case '1':
         {
-            int liczba_kontaktow=adresaci.size();
-            if (liczba_kontaktow >0)
-            {
-                max_id_adresata = adresaci[liczba_kontaktow-1].id_adresata;
-
-                adresaci.push_back(utworz_kontakt(max_id_adresata, id_zalogowanego));
-            }
-            else  adresaci.push_back(utworz_kontakt(0, id_zalogowanego));
+            max_id_adresata = utworz_kontakt(max_id_adresata, id_zalogowanego, adresaci);
         }
+
         break;
 
         case '2':
@@ -822,7 +829,6 @@ int main()
         {
             system ("cls");
             zmianaHasla (uzytkownicy, id_zalogowanego);
-
         }
         break;
 
