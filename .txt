@@ -1,0 +1,4 @@
+1|ania|abc|
+2|kasia|abs|
+1|aa|d|
+2|44|k|
