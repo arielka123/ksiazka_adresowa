@@ -27,13 +27,17 @@ class UzytkownikManager
 
     Uzytkownik pobierzDaneUzytkownika();
 
+    string wczytajLinie ();
+
 public:
     UzytkownikManager (string nazwaPlikuZUzytkownikami) : plikZUzytkownikami (nazwaPlikuZUzytkownikami){};
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
 
+    int logowanieUzytkownika();
+
 };
-#endif // UZYTKOWNIKMANAGER
+#endif
 
 
