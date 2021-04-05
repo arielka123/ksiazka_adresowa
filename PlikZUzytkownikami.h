@@ -16,7 +16,7 @@ using namespace std;
 class PlikZUzytkownikami
 {
     fstream plikTekstowy;
-    string nazwaPlikuZUzytkownikami;
+    const string nazwaPlikuZUzytkownikami;
 
 
     bool czyPlikJestPusty();
@@ -25,7 +25,7 @@ class PlikZUzytkownikami
 
 
 public:
-    PlikZUzytkownikami ();
+    PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI) : nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};
 
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
     vector <Uzytkownik> wczytajUzytkownikowZPliku();
