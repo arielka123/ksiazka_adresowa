@@ -1,5 +1,16 @@
 #include "UzytkownikManager.h"
 
+int UzytkownikManager::pobierzIdZalogowanegoUzytkownika (int noweIdZalogowanegoUzytkownika)
+{
+ if (noweIdZalogowanegoUzytkownika >=0)
+     idZalogowanegoUzytkownika =noweIdZalogowanegoUzytkownika;
+}
+
+int UzytkownikManager::ustawIdZalogowanegouzytkownika ()
+{
+   return idZalogowanegoUzytkownika;
+}
+
 void UzytkownikManager::rejestracjaUzytkownika()
 {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
@@ -46,7 +57,7 @@ int UzytkownikManager::pobierzIdNowegoUzytkownika()
 
 bool UzytkownikManager::czyIstniejeLogin(string login)
 {
-    for (int i; i<uzytkownicy.size();i++)
+    for (int i=0; i<uzytkownicy.size();i++)
     {
         if (uzytkownicy[i].pobierzLogin()==login)
         {
@@ -96,7 +107,10 @@ int UzytkownikManager::logowanieUzytkownika()
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    return uzytkownicy[i].pobierzId();
+
+                    idZalogowanegoUzytkownika = uzytkownicy[i].pobierzId();
+
+                    return idZalogowanegoUzytkownika;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
@@ -110,3 +124,24 @@ int UzytkownikManager::logowanieUzytkownika()
     return 0;
 }
 
+
+void UzytkownikManager::zmianaHaslaZalogowanegoUzytkownika()
+{
+    Uzytkownik uzytkownik;
+
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    cin>> noweHaslo;
+
+    for (int i=0; i< uzytkownicy.size();i++)
+    {
+        if (uzytkownicy[i].pobierzId() ==idZalogowanegoUzytkownika)
+        {
+            uzytkownicy[i].ustawHaslo(noweHaslo);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+
+    //zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
