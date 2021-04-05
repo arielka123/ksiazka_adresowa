@@ -17,10 +17,11 @@ int main()
     // ksiazkaAdresowa.logowanieUzytkownika();
     ksiazkaAdresowa.logowanieUzytkownika();
 
-    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    cout << endl<<ksiazkaAdresowa.pobierzidZalogowanego();
+    //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+    ksiazkaAdresowa.wylogowanieUzytkownika();
 
-
+    cout << endl<<ksiazkaAdresowa.pobierzidZalogowanego();
 
     return 0;
 }

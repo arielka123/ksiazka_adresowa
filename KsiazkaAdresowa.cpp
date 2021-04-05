@@ -14,12 +14,18 @@ int KsiazkaAdresowa::logowanieUzytkownika()
     {
         uzytkownikManager.logowanieUzytkownika();
     }
-/*
+
 int  KsiazkaAdresowa::pobierzidZalogowanego()
 {
-    return uzytkownikManager.ustawIdZalogowanegouzytkownika();
-}*/
+    return uzytkownikManager.pobierzIdZalogowanegoUzytkownika();
+}
+
 void  KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika ()
 {
     uzytkownikManager.zmianaHaslaZalogowanegoUzytkownika();
 }
+
+  void KsiazkaAdresowa::wylogowanieUzytkownika()
+  {
+      uzytkownikManager.wylogowanieUzytkownika();
+  }

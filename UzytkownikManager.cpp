@@ -1,14 +1,8 @@
 #include "UzytkownikManager.h"
 
-int UzytkownikManager::pobierzIdZalogowanegoUzytkownika (int noweIdZalogowanegoUzytkownika)
+int UzytkownikManager::pobierzIdZalogowanegoUzytkownika ()
 {
- if (noweIdZalogowanegoUzytkownika >=0)
-     idZalogowanegoUzytkownika =noweIdZalogowanegoUzytkownika;
-}
-
-int UzytkownikManager::ustawIdZalogowanegouzytkownika ()
-{
-   return idZalogowanegoUzytkownika;
+return idZalogowanegoUzytkownika;
 }
 
 void UzytkownikManager::rejestracjaUzytkownika()
@@ -142,6 +136,13 @@ void UzytkownikManager::zmianaHaslaZalogowanegoUzytkownika()
             system("pause");
         }
     }
-
     //zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
+
+int  UzytkownikManager::wylogowanieUzytkownika ()
+{
+    idZalogowanegoUzytkownika =0;
+
+    return idZalogowanegoUzytkownika;
+}
+
