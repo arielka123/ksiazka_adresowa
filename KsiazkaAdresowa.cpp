@@ -10,8 +10,23 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
     uzytkownikManager.wypiszWszystkichUzytkownikow();
 }
 
-
-    int KsiazkaAdresowa::logowanieUzytkownika()
+int KsiazkaAdresowa::logowanieUzytkownika()
     {
         uzytkownikManager.logowanieUzytkownika();
     }
+
+int  KsiazkaAdresowa::pobierzidZalogowanegoUzytkownika()
+{
+    return uzytkownikManager.pobierzIdZalogowanegoUzytkownika();
+}
+
+void  KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika ()
+{
+    uzytkownikManager.zmianaHaslaZalogowanegoUzytkownika();
+}
+
+  void KsiazkaAdresowa::wylogowanieUzytkownika()
+  {
+      uzytkownikManager.wylogowanieUzytkownika();
+  }
+
