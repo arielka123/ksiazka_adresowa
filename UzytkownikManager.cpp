@@ -73,7 +73,6 @@ void UzytkownikManager::wypiszWszystkichUzytkownikow()
     }
 }
 
-
 void UzytkownikManager::wczytajUzytkownikowZPliku()
 {
    uzytkownicy= plikZUzytkownikami.wczytajUzytkownikowZPliku();
@@ -86,7 +85,6 @@ int UzytkownikManager::logowanieUzytkownika()
 
     cout << endl << "Podaj login: ";
     cin>>LOGIN;
-
 
     for (int i=0; i< uzytkownicy.size();i++)
     {
@@ -118,7 +116,6 @@ int UzytkownikManager::logowanieUzytkownika()
     return 0;
 }
 
-
 void UzytkownikManager::zmianaHaslaZalogowanegoUzytkownika()
 {
     Uzytkownik uzytkownik;
@@ -136,7 +133,7 @@ void UzytkownikManager::zmianaHaslaZalogowanegoUzytkownika()
             system("pause");
         }
     }
-    //zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
 int  UzytkownikManager::wylogowanieUzytkownika ()
@@ -145,4 +142,3 @@ int  UzytkownikManager::wylogowanieUzytkownika ()
 
     return idZalogowanegoUzytkownika;
 }
-

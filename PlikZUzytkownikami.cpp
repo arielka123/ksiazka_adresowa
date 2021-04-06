@@ -102,3 +102,38 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
     }
     return uzytkownik;
 }
+
+void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy)
+{
+    fstream plikTekstowy;
+
+  plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
+
+
+    if (plikTekstowy.good() == true)
+    {
+        for (int i =0;i<uzytkownicy.size() ;i++)
+        {
+
+            plikTekstowy<<uzytkownicy[i].pobierzId()<<"|";
+            plikTekstowy<<uzytkownicy[i].pobierzLogin()<<"|";
+            plikTekstowy<<uzytkownicy[i].pobierzHaslo()<<"|";
+            if (i == uzytkownicy.size() -1)
+            {
+
+            }
+            else
+            {
+            plikTekstowy<<endl;
+            }
+        }
+    }
+    else
+    {
+        cout << "Nie mozna otworzyc pliku " << nazwaPlikuZUzytkownikami << endl;
+    }
+    plikTekstowy.close();
+
+}
+
+

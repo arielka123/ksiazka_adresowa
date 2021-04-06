@@ -15,7 +15,7 @@ int KsiazkaAdresowa::logowanieUzytkownika()
         uzytkownikManager.logowanieUzytkownika();
     }
 
-int  KsiazkaAdresowa::pobierzidZalogowanego()
+int  KsiazkaAdresowa::pobierzidZalogowanegoUzytkownika()
 {
     return uzytkownikManager.pobierzIdZalogowanegoUzytkownika();
 }
@@ -29,3 +29,4 @@ void  KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika ()
   {
       uzytkownikManager.wylogowanieUzytkownika();
   }
+

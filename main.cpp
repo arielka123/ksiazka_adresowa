@@ -11,17 +11,11 @@ int main()
 
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     // ksiazkaAdresowa.rejestracjaUzytkownika();
-    // ksiazkaAdresowa.rejestracjaUzytkownika();
     // ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-
     // ksiazkaAdresowa.logowanieUzytkownika();
     ksiazkaAdresowa.logowanieUzytkownika();
-
-    cout << endl<<ksiazkaAdresowa.pobierzidZalogowanego();
-    //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-    ksiazkaAdresowa.wylogowanieUzytkownika();
-
-    cout << endl<<ksiazkaAdresowa.pobierzidZalogowanego();
+    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+    //ksiazkaAdresowa.wylogowanieUzytkownika()s;
 
     return 0;
 }

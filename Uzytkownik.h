@@ -20,4 +20,4 @@ public:
 
 };
 
-#endif // UZYTKOWNIK_H
+#endif
