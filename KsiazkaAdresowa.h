@@ -1,16 +1,19 @@
 #include <iostream>
 #include  "UzytkownikManager.h"
+#include "AdresatManager.h"
 
 using namespace std;
 
 class KsiazkaAdresowa
 {
-UzytkownikManager uzytkownikManager;
+    UzytkownikManager uzytkownikManager;
 
 public:
+
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami):uzytkownikManager(nazwaPlikuZUzytkownikami)
-    {uzytkownikManager.wczytajUzytkownikowZPliku();
-    };
+    {
+        uzytkownikManager.wczytajUzytkownikowZPliku();
+    }
 
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
@@ -18,5 +21,5 @@ public:
     int pobierzidZalogowanegoUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika ();
     void wylogowanieUzytkownika();
-
+    void dodajAdresata();
 };

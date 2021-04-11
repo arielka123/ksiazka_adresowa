@@ -1,9 +1,9 @@
 #include "KsiazkaAdresowa.h"
 
- void KsiazkaAdresowa::rejestracjaUzytkownika()
- {
-     uzytkownikManager.rejestracjaUzytkownika();
- }
+void KsiazkaAdresowa::rejestracjaUzytkownika()
+{
+    uzytkownikManager.rejestracjaUzytkownika();
+}
 
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 {
@@ -11,9 +11,9 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 }
 
 int KsiazkaAdresowa::logowanieUzytkownika()
-    {
-        uzytkownikManager.logowanieUzytkownika();
-    }
+{
+    return uzytkownikManager.logowanieUzytkownika();
+}
 
 int  KsiazkaAdresowa::pobierzidZalogowanegoUzytkownika()
 {
@@ -25,8 +25,13 @@ void  KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika ()
     uzytkownikManager.zmianaHaslaZalogowanegoUzytkownika();
 }
 
-  void KsiazkaAdresowa::wylogowanieUzytkownika()
-  {
-      uzytkownikManager.wylogowanieUzytkownika();
-  }
+void KsiazkaAdresowa::wylogowanieUzytkownika()
+{
+    uzytkownikManager.wylogowanieUzytkownika();
+}
+
+void KsiazkaAdresowa:: dodajAdresata()
+{
+    //adresatManager.dodajAdresata();
+}
 

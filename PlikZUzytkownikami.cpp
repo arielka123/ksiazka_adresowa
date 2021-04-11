@@ -35,15 +35,6 @@ string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowym
 
     return liniaZDanymiUzytkownika;
 }
-bool PlikZUzytkownikami::czyPlikJestPusty()
-{
-    fstream plikTekstowy;
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}
 
 vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
 
@@ -54,7 +45,7 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
 
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami="";
 
-    plikTekstowy.open(PlikZUzytkownikami::nazwaPlikuZUzytkownikami.c_str(), ios::in);
+    plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
@@ -107,12 +98,12 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
 {
     fstream plikTekstowy;
 
-  plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
+    plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
 
 
     if (plikTekstowy.good() == true)
     {
-        for (int i =0;i<uzytkownicy.size() ;i++)
+        for (int i =0; i<uzytkownicy.size() ; i++)
         {
 
             plikTekstowy<<uzytkownicy[i].pobierzId()<<"|";
@@ -124,7 +115,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
             }
             else
             {
-            plikTekstowy<<endl;
+                plikTekstowy<<endl;
             }
         }
     }
@@ -136,4 +127,12 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
 
 }
 
-
+bool PlikZUzytkownikami::czyPlikJestPusty()
+{
+    fstream plikTekstowy;
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
+}

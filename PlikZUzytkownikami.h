@@ -1,7 +1,6 @@
 #ifndef PLIKZUZYTKOWNIKAMI_H
 #define PLIKZUZYTKOWNIKAMI_H
 
-
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -14,15 +13,13 @@ using namespace std;
 
 class PlikZUzytkownikami
 {
-    fstream plikTekstowy;
     const string nazwaPlikuZUzytkownikami;
-    bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
+    bool czyPlikJestPusty();
 
 public:
-    PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI) : nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};
-
+    PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI) : nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI) {};
     vector <Uzytkownik> wczytajUzytkownikowZPliku();
 
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
