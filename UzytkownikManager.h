@@ -26,7 +26,7 @@ class UzytkownikManager
     Uzytkownik pobierzDaneUzytkownika();
 
 public:
-    int pobierzIdZalogowanegoUzytkownika ();
+    int pobierzIdZalogowanegoUzytkownika();
 
     UzytkownikManager (string nazwaPlikuZUzytkownikami) : plikZUzytkownikami (nazwaPlikuZUzytkownikami){};
     void rejestracjaUzytkownika();

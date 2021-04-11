@@ -11,6 +11,7 @@
 
 class PlikZAdresatami
 {
+    string nazwaPlikuZAdresatami;
     bool czyPlikJestPusty();
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
@@ -18,7 +19,6 @@ class PlikZAdresatami
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 
 public:
-    string nazwaPlikuZAdresatami;
     PlikZAdresatami();
     void dopiszAdresataDoPliku(Adresat adresat);
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
