@@ -1,7 +1,6 @@
-
 #include "AdresatManager.h"
 
-int AdresatManager:: dodajAdresata()
+void AdresatManager:: dodajAdresata()
 {
     Adresat adresat;
 
@@ -11,11 +10,11 @@ int AdresatManager:: dodajAdresata()
 
     adresaci.push_back(adresat);
 
-    PlikZAdresatami plikZAdresatami;
-
-    plikZAdresatami.dopiszAdresataDoPliku(adresat);
-
-    return ++idOstatniegoAdresata;
+    if (plikZAdresatami.dopiszAdresataDoPliku(adresat))
+        cout <<"Nowy adresat zostal dodany";
+    else
+        cout <<"Blad. bie udalo sie dodac nowego adresata"<<endl; // dlatego moze byc boool
+    system("pause");
 }
 
 Adresat AdresatManager::podajDaneNowegoAdresata()
@@ -24,8 +23,8 @@ Adresat AdresatManager::podajDaneNowegoAdresata()
 
     Adresat adresat;
 
-    adresat.ustawIdAdresata(++idOstatniegoAdresata);
-    adresat.ustawIdUzytkownika (uzytkownikManager.pobierzIdZalogowanegoUzytkownika());
+    adresat.ustawIdAdresata(plikZAdresatami.pobierzIdOstatniegoAdresata(adresaci)+1);
+    adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     cin >> imie;
@@ -65,8 +64,4 @@ string AdresatManager:: zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
     return tekst;
 }
 
-void AdresatManager::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
-{
-    PlikZAdresatami plikZAdresatami;
-    plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-}
+

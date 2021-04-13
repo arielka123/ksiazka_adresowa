@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>75</x>
-      <y>270</y>
+      <x>0</x>
+      <y>60</y>
       <w>360</w>
       <h>165</h>
     </coordinates>
@@ -15,6 +15,11 @@
 --
 + rejestracjaUzytkownika () : void
 + wypiszWszystkichUzytkownika () : void
++ logowanieUzytkownika () : void
++ pobierzIdZalogowanegoUzytkownika () : int
++ zmianaHaslaZalogowanegoUzytkownika () : void
++ wylogowanieUzytkownika () : void
++ dodajAdresata () : void
 --
 
 
@@ -29,8 +34,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1230</x>
-      <y>255</y>
+      <x>1125</x>
+      <y>0</y>
       <w>225</w>
       <h>195</h>
     </coordinates>
@@ -44,10 +49,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>255</y>
+      <x>375</x>
+      <y>0</y>
       <w>480</w>
-      <h>330</h>
+      <h>360</h>
     </coordinates>
     <panel_attributes>UzytkownikManager
 --
@@ -77,8 +82,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1230</x>
-      <y>480</y>
+      <x>1125</x>
+      <y>225</y>
       <w>810</w>
       <h>270</h>
     </coordinates>
@@ -89,7 +94,7 @@
 --
 + PlikTekstowy ()
 + dopiszUzytkownikaDoPliku () : void
-* wczytajUzytkownikowZpliku  (): vector
++ wczytajUzytkownikowZpliku  (): vector
 - czyPlikJestPusty () : bool
 - zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami (): string
 + zapiszWszystkichUzytkownikowDoPliku : void</panel_attributes>
@@ -98,8 +103,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1185</x>
-      <y>780</y>
+      <x>1080</x>
+      <y>525</y>
       <w>330</w>
       <h>120</h>
     </coordinates>
@@ -107,14 +112,16 @@
 --
 --
 + konwerjsaIntNaString () : string
++ konwersjaStringNaInt () : int
++ pobierzLiczbe () : int
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>840</x>
-      <y>600</y>
+      <x>735</x>
+      <y>345</y>
       <w>285</w>
       <h>240</h>
     </coordinates>
@@ -135,23 +142,21 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>630</y>
+      <x>210</x>
+      <y>375</y>
       <w>480</w>
       <h>315</h>
     </coordinates>
     <panel_attributes>AdresatManager
 --
-- idOstatniegoAdresata : integer
-- idUsunietegoAdresata : integer
 - adresaci : vector&lt;Adresat&gt;
+- ID_ZALOGOWANEGO_UZYTKOWNIKA
 --
 + dodajAdresata : integer
 - podajDane NOwegoAdresata : adresat 
 - dopiszAdresataDoPliku : void
 - zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami : string
-+ wyswietlWszystkichAdresatow : void
-- wyswietlDaneAdresata : void
+
 
 
 </panel_attributes>
@@ -160,17 +165,23 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>810</x>
-      <y>915</y>
+      <x>480</x>
+      <y>660</y>
       <w>465</w>
-      <h>165</h>
+      <h>255</h>
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
 - plikTekstowy : fstream;
 - nazwaPlikuZAdresatami : const string
 --
-- dopiszAdresataDoPliku : void
++ dopiszAdresataDoPliku : void
+-  czyPlikJestPusty : bool
+-  pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami : int
+-  pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): adresat
+-  pobierzIdAdresataZDanychOddzielonychPionowymiKreskami : int
+-  zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami : string
++ pobierzIdOstatniegoAdresata : vector
 </panel_attributes>
     <additional_attributes/>
   </element>

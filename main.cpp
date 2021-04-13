@@ -1,24 +1,38 @@
 #include <iostream>
 #include "KsiazkaAdresowa.h"
-#include "Adresat.h"
-#include "UzytkownikManager.h"
-#include "AdresatManager.h"
 
 using namespace std;
 
-int main()
+int _main()
 {
-    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt");
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt", "Adresaci.txt");
 
+    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    //ksiazkaAdresowa.rejestracjaUzytkownika();
     //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-    // ksiazkaAdresowa.rejestracjaUzytkownika();
-    // ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-    // ksiazkaAdresowa.logowanieUzytkownika();
-    // ksiazkaAdresowa.logowanieUzytkownika();
-    // ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-    //ksiazkaAdresowa.wylogowanieUzytkownika()s;
-    //ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.logowanieUzytkownika();
+    //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+    //ksiazkaAdresowa.wylogowanieUzytkownika();
+    ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.dodajAdresata();
+        ksiazkaAdresowa.dodajAdresata();
+
+            ksiazkaAdresowa.dodajAdresata();
+
 
 
     return 0;
+}
+
+//testy
+
+#include "AdresatManager.h"
+
+int main()
+{
+    AdresatManager adresatManager ("Adresaci.txt",3);
+    adresatManager.dodajAdresata();
+
+
+     return 0;
 }

@@ -11,18 +11,23 @@
 
 class PlikZAdresatami
 {
-    string nazwaPlikuZAdresatami;
-    bool czyPlikJestPusty();
+    int idOstatniegoAdresata;
+
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
+    bool czyPlikJestPusty(fstream & plikTekstowy);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 
 public:
-    PlikZAdresatami();
-    void dopiszAdresataDoPliku(Adresat adresat);
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-};
+    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){
+    idOstatniegoAdresata = 0;
+    };
 
+    int pobierzIdOstatniegoAdresata( vector <Adresat> &adresaci);
+    bool dopiszAdresataDoPliku(Adresat adresat);
+    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+};
 #endif
 

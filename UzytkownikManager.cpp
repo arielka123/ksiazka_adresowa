@@ -73,10 +73,6 @@ void UzytkownikManager::wypiszWszystkichUzytkownikow()
     }
 }
 
-void UzytkownikManager::wczytajUzytkownikowZPliku()
-{
-   uzytkownicy= plikZUzytkownikami.wczytajUzytkownikowZPliku();
-}
 
 int UzytkownikManager::logowanieUzytkownika()
 {
@@ -136,9 +132,16 @@ void UzytkownikManager::zmianaHaslaZalogowanegoUzytkownika()
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
-int  UzytkownikManager::wylogowanieUzytkownika ()
+void  UzytkownikManager::wylogowanieUzytkownika ()
 {
     idZalogowanegoUzytkownika =0;
 
-    return idZalogowanegoUzytkownika;
 }
+
+ bool  UzytkownikManager::czyJestZalogowany ()
+ {
+     if(idZalogowanegoUzytkownika>0)
+     return true;
+     else
+        return false;
+ }

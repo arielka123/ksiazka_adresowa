@@ -28,13 +28,18 @@ class UzytkownikManager
 public:
     int pobierzIdZalogowanegoUzytkownika();
 
-    UzytkownikManager (string nazwaPlikuZUzytkownikami) : plikZUzytkownikami (nazwaPlikuZUzytkownikami){};
+    UzytkownikManager (string nazwaPlikuZUzytkownikami) : plikZUzytkownikami (nazwaPlikuZUzytkownikami)
+    {
+    idZalogowanegoUzytkownika=0;
+    uzytkownicy= plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
+
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
-    int  wylogowanieUzytkownika();
+    void wylogowanieUzytkownika();
+    bool czyJestZalogowany ();
 };
 #endif
 
