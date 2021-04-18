@@ -68,3 +68,7 @@ void KsiazkaAdresowa:: edytujAdresata()
     adresatManager->edytujAdresata();
 }
 
+int KsiazkaAdresowa :: usunAdresata()
+{
+    adresatManager->usunAdresata();
+}

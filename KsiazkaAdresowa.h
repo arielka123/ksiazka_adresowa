@@ -38,10 +38,7 @@ public:
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
     void edytujAdresata();
-
-
-
-
+    int usunAdresata();
 
 };
 #endif // KSIAZKAADRESOWA
