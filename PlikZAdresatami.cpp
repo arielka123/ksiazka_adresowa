@@ -1,11 +1,10 @@
 #include "PlikZAdresatami.h"
 
-/*int PlikZAdresatami::pobierzIdOstatniegoAdresata()
+int PlikZAdresatami::pobierzIdOstatniegoAdresata()
 {
     return idOstatniegoAdresata;
 }
-*/
-
+/*
 int PlikZAdresatami::pobierzIdOstatniegoAdresata(vector <Adresat> &adresaci)
 {
     if (adresaci.empty() == true)
@@ -13,8 +12,7 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata(vector <Adresat> &adresaci)
     else
         return adresaci.back().pobierzIdAdresata();
 }
-
-
+*/
 bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
@@ -45,8 +43,8 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
 {
     string liniaZDanymiAdresata = "";
 
-    liniaZDanymiAdresata += MetodyPomocnicze:: konwerjsaIntNaString(adresat.pobierzIdUzytkownika()) + '|';
     liniaZDanymiAdresata += MetodyPomocnicze:: konwerjsaIntNaString(adresat.pobierzIdAdresata()) + '|';
+    liniaZDanymiAdresata += MetodyPomocnicze:: konwerjsaIntNaString(adresat.pobierzIdUzytkownika()) + '|';
     liniaZDanymiAdresata += adresat.pobierzImie() + '|';
     liniaZDanymiAdresata += adresat.pobierzNazwisko() + '|';
     liniaZDanymiAdresata += adresat.pobierzNumerTelefonu() + '|';
@@ -93,7 +91,8 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
 
     if (daneOstaniegoAdresataWPliku != "")
     {
-        idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+         idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+         cout <<idOstatniegoAdresata;
     }
     else
         return adresaci;

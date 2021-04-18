@@ -49,3 +49,13 @@ void KsiazkaAdresowa:: dodajAdresata()
     }
 }
 
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+{
+    adresatManager->wyswietlWszystkichAdresatow();
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+    adresatManager->wyszukajAdresatowPoImieniu();
+}
+

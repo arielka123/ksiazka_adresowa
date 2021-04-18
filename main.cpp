@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int _main()
+int main()
 {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt", "Adresaci.txt");
 
@@ -13,13 +13,9 @@ int _main()
     ksiazkaAdresowa.logowanieUzytkownika();
     //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
     //ksiazkaAdresowa.wylogowanieUzytkownika();
-    ksiazkaAdresowa.dodajAdresata();
-    ksiazkaAdresowa.dodajAdresata();
-        ksiazkaAdresowa.dodajAdresata();
-
-            ksiazkaAdresowa.dodajAdresata();
-
-
+   // ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+    ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
 
     return 0;
 }
@@ -28,9 +24,11 @@ int _main()
 
 #include "AdresatManager.h"
 
-int main()
+int _main()
 {
     AdresatManager adresatManager ("Adresaci.txt",3);
+    adresatManager.dodajAdresata();
+    adresatManager.dodajAdresata();
     adresatManager.dodajAdresata();
 
 

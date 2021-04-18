@@ -25,7 +25,7 @@ public:
     idOstatniegoAdresata = 0;
     };
 
-    int pobierzIdOstatniegoAdresata( vector <Adresat> &adresaci);
+    int pobierzIdOstatniegoAdresata();
     bool dopiszAdresataDoPliku(Adresat adresat);
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 };

@@ -5,7 +5,6 @@
 #include <vector>
 #include <windows.h>
 #include <sstream>
-#include <algorithm>
 
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
@@ -21,8 +20,10 @@ class AdresatManager
     PlikZAdresatami plikZAdresatami;
 
     Adresat podajDaneNowegoAdresata();
-    void dopiszAdresataDoPliku(Adresat adresat);
-    string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    void wyswietlDaneAdresata(Adresat adresat);
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
+
+
 
 public:
     AdresatManager (string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
@@ -32,7 +33,10 @@ public:
     };
 
     void dodajAdresata();
-    // void wyswietlWszystkichAdresatow ();
+    void wyswietlWszystkichAdresatow ();
+    void wyszukajAdresatowPoImieniu();
+
+
 
 };
 
