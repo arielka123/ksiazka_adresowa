@@ -22,7 +22,9 @@ class AdresatManager
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
     void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
-
+    int podajIdWybranegoAdresata();
+    char wybierzOpcjeZMenuEdycja();
+    void zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
 
 
 public:
@@ -35,8 +37,9 @@ public:
     void dodajAdresata();
     void wyswietlWszystkichAdresatow ();
     void wyszukajAdresatowPoImieniu();
-
-
+    void wyszukajAdresatowPoNazwisku();
+    void edytujAdresata();
+    int usunAdresata();
 
 };
 

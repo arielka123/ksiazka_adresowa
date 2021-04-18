@@ -15,7 +15,13 @@ int main()
     //ksiazkaAdresowa.wylogowanieUzytkownika();
    // ksiazkaAdresowa.dodajAdresata();
     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-    ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
+    //ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
+    //ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
+    //ksiazkaAdresowa.edytujAdresata();
+    ksiazkaAdresowa.usunAdresata();
+
+    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+
 
     return 0;
 }

@@ -44,7 +44,7 @@ void KsiazkaAdresowa:: dodajAdresata()
     }
     else
     {
-        cout <<"Aby dodac adresata nalezy najpierw siê zalogowac"<<endl;
+        cout <<"Aby dodac adresata nalezy najpierw sie zalogowac"<<endl;
         system("pause");
     }
 }
@@ -59,3 +59,16 @@ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
     adresatManager->wyszukajAdresatowPoImieniu();
 }
 
+void KsiazkaAdresowa:: wyszukajAdresatowPoNazwisku()
+{
+    adresatManager->wyszukajAdresatowPoNazwisku();
+}
+void KsiazkaAdresowa:: edytujAdresata()
+{
+    adresatManager->edytujAdresata();
+}
+
+int KsiazkaAdresowa :: usunAdresata()
+{
+    adresatManager->usunAdresata();
+}
