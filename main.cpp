@@ -11,14 +11,17 @@ int main()
     //ksiazkaAdresowa.rejestracjaUzytkownika();
     //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     ksiazkaAdresowa.logowanieUzytkownika();
+    cin.ignore();
     //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
     //ksiazkaAdresowa.wylogowanieUzytkownika();
-   // ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+
+    ksiazkaAdresowa.dodajAdresata();
     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
     //ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
     //ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
-    //ksiazkaAdresowa.edytujAdresata();
-    ksiazkaAdresowa.usunAdresata();
+    ksiazkaAdresowa.edytujAdresata();
+    //ksiazkaAdresowa.usunAdresata();
 
     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
 
@@ -32,11 +35,16 @@ int main()
 
 int _main()
 {
-    AdresatManager adresatManager ("Adresaci.txt",3);
+    AdresatManager adresatManager ("Adresaci_test.txt",9);
+    adresatManager.wyswietlWszystkichAdresatow();
     adresatManager.dodajAdresata();
-    adresatManager.dodajAdresata();
-    adresatManager.dodajAdresata();
+    adresatManager.wyswietlWszystkichAdresatow();
+
+//  //  adresatManager.wyswietlWszystkichAdresatow();
+    adresatManager.edytujAdresata();
+    //adresatManager.usunAdresata();
+    adresatManager.wyswietlWszystkichAdresatow();
 
 
-     return 0;
+    return 0;
 }
