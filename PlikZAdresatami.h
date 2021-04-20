@@ -24,17 +24,18 @@ class PlikZAdresatami
     void usunPlik(string nazwaPlikuZRozszerzeniem);
 
 public:
-    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){
-    idOstatniegoAdresata = 0;
-    nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
+    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
+    {
+        idOstatniegoAdresata = 0;
+        nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
 
     };
 
     int pobierzIdOstatniegoAdresata();
     bool dopiszAdresataDoPliku(Adresat adresat);
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-    void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
-    int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
+    void edytujWybranaLinieWPliku(int idAdresata, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+   // int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     void usunWybranaLinieWPliku(int idAdresata);
 
