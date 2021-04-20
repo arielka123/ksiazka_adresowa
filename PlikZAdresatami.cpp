@@ -242,31 +242,50 @@ void PlikZAdresatami::zmienNazwePliku(string staraNazwa, string nowaNazwa)
         cout << "Nazwa pliku nie zostala zmieniona." << staraNazwa << endl;
 }
 
-void PlikZAdresatami::usunWybranaLinieWPliku(int numerUsuwanejLinii)
+void PlikZAdresatami::usunWybranaLinieWPliku(int idAdresata)
 {
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+
     string wczytanaLinia = "";
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+
+    bool czyIstniejeAdresat = false;
+
     int numerWczytanejLinii = 1;
+    int numerUsuwanejLinii = 0;
+    int numerLiniiWPlikuTekstowym = 1;
 
     odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
     tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
 
-    if (odczytywanyPlikTekstowy.good() == true && numerUsuwanejLinii != 0)
+    if (odczytywanyPlikTekstowy.good() == true && idAdresata != 0)
     {
-        while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
+        while(getline(odczytywanyPlikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
         {
-            // Tych przypadkow jest tyle, gdyz chcemy osiagnac taki efekt,
-            // aby na koncu pliku nie bylo pustej linii
-            if (numerWczytanejLinii == numerUsuwanejLinii) {}
-            else if (numerWczytanejLinii == 1 && numerWczytanejLinii != numerUsuwanejLinii)
-                tymczasowyPlikTekstowy << wczytanaLinia;
-            else if (numerWczytanejLinii == 2 && numerUsuwanejLinii == 1)
-                tymczasowyPlikTekstowy << wczytanaLinia;
-            else if (numerWczytanejLinii > 2 && numerUsuwanejLinii == 1)
-                tymczasowyPlikTekstowy << endl << wczytanaLinia;
-            else if (numerWczytanejLinii > 1 && numerUsuwanejLinii != 1)
-                tymczasowyPlikTekstowy << endl << wczytanaLinia;
-            numerWczytanejLinii++;
+            if(idAdresata != pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
+            {
+                if(numerLiniiWPlikuTekstowym ==1 && numerUsuwanejLinii==0)
+                {
+                tymczasowyPlikTekstowy << daneJednegoAdresataOddzielonePionowymiKreskami;
+                }
+                else if (numerLiniiWPlikuTekstowym >1 && numerUsuwanejLinii==0)
+                {
+                    tymczasowyPlikTekstowy <<endl<< daneJednegoAdresataOddzielonePionowymiKreskami;
+                }
+                else if (numerLiniiWPlikuTekstowym == 2 && numerUsuwanejLinii == 1)
+                                tymczasowyPlikTekstowy << daneJednegoAdresataOddzielonePionowymiKreskami;
+                else if (numerLiniiWPlikuTekstowym > 2 && numerUsuwanejLinii == 1)
+                                tymczasowyPlikTekstowy << endl << daneJednegoAdresataOddzielonePionowymiKreskami;
+                else if (numerLiniiWPlikuTekstowym > 1 && numerUsuwanejLinii != 1)
+                                tymczasowyPlikTekstowy << endl << daneJednegoAdresataOddzielonePionowymiKreskami;
+
+                numerLiniiWPlikuTekstowym++;
+            }
+            else
+            {
+                numerUsuwanejLinii = numerLiniiWPlikuTekstowym;
+                numerLiniiWPlikuTekstowym++;
+            }
         }
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
