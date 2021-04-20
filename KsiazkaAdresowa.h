@@ -4,6 +4,7 @@
 #include <iostream>
 #include  "UzytkownikManager.h"
 #include "AdresatManager.h"
+#include "MetodyPomocnicze.h"
 
 using namespace std;
 
@@ -26,6 +27,9 @@ public:
         delete adresatManager;
         adresatManager = NULL;
     }
+
+    char wybierzOpcjeZMenuUzytkownika();
+    char wybierzOpcjeZMenuGlownego();
 
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
