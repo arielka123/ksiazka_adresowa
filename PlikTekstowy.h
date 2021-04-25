@@ -10,10 +10,10 @@ using namespace std;
 
 class PlikTekstowy
 {
-        public:
+        protected:
         const string NAZWA_PLIKU;
 
-        bool czyPlikJestPusty();
+        bool czyPlikJestPusty(fstream &plikTekstowy);
 
        PlikTekstowy (string nazwaPliku): NAZWA_PLIKU (nazwaPliku){};
 

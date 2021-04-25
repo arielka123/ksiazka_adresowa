@@ -15,11 +15,12 @@ class PlikZAdresatami :public PlikTekstowy
     int idOstatniegoAdresata;
 
     string nazwaTymczasowegoPlikuZAdresatami;
+    vector <Adresat> adresaci;
 
-   // const string NAZWA_PLIKU_Z_ADRESATAMI;
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    int pobierzIdOstatniegoAdresataZVektora( vector <Adresat> &adresaci);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
     void usunPlik(string nazwaPlikuZRozszerzeniem);
 

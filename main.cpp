@@ -3,13 +3,13 @@
 
 using namespace std;
 
-int main()
+int _main()
 {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt", "Adresaci.txt");
     char wybor;
     int idZalogowanegoUzytkownika=0;
 
-while (true)
+    while (true)
     {
         if (idZalogowanegoUzytkownika == 0)
         {
@@ -18,13 +18,13 @@ while (true)
             switch (wybor)
             {
             case '1':
-            ksiazkaAdresowa.rejestracjaUzytkownika();
-            idZalogowanegoUzytkownika = ksiazkaAdresowa.pobierzidZalogowanegoUzytkownika();
+                ksiazkaAdresowa.rejestracjaUzytkownika();
+                idZalogowanegoUzytkownika = ksiazkaAdresowa.pobierzidZalogowanegoUzytkownika();
 
-            break;
+                break;
             case '2':
                 ksiazkaAdresowa.logowanieUzytkownika();
-               idZalogowanegoUzytkownika = ksiazkaAdresowa.pobierzidZalogowanegoUzytkownika();
+                idZalogowanegoUzytkownika = ksiazkaAdresowa.pobierzidZalogowanegoUzytkownika();
                 break;
             case '9':
                 exit(0);
@@ -36,7 +36,7 @@ while (true)
             }
         }
 
-        else
+        if (idZalogowanegoUzytkownika>0)
         {
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
@@ -64,7 +64,7 @@ while (true)
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
                 break;
             case '8':
-               idZalogowanegoUzytkownika = 0;
+                idZalogowanegoUzytkownika = 0;
                 break;
             }
         }
@@ -77,17 +77,14 @@ while (true)
 
 #include "AdresatManager.h"
 
-int _main()
+int main()
 {
     AdresatManager adresatManager ("Adresaci_test.txt",9);
     adresatManager.wyswietlWszystkichAdresatow();
     adresatManager.dodajAdresata();
+    adresatManager.dodajAdresata();
     adresatManager.wyswietlWszystkichAdresatow();
 
-//  //  adresatManager.wyswietlWszystkichAdresatow();
-    adresatManager.edytujAdresata();
-    //adresatManager.usunAdresata();
-    adresatManager.wyswietlWszystkichAdresatow();
 
 
     return 0;

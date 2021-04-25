@@ -4,15 +4,15 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata()
 {
     return idOstatniegoAdresata;
 }
-/*
-int PlikZAdresatami::pobierzIdOstatniegoAdresata(vector <Adresat> &adresaci)
+
+int PlikZAdresatami::pobierzIdOstatniegoAdresataZVektora(vector <Adresat> &adresaci)
 {
     if (adresaci.empty() == true)
         return 0;
     else
         return adresaci.back().pobierzIdAdresata();
 }
-*/
+
 bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
@@ -23,7 +23,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        if (czyPlikJestPusty() == true)
+        if (czyPlikJestPusty(plikTekstowy) == true)
         {
             plikTekstowy << liniaZDanymiAdresata;
         }
@@ -83,7 +83,6 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
     if (daneOstaniegoAdresataWPliku != "")
     {
          idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
-         cout <<idOstatniegoAdresata;
     }
     else
         return adresaci;
@@ -91,7 +90,6 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
 
 int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
-
     int pozycjaRozpoczeciaIdUzytkownika = daneJednegoAdresataOddzielonePionowymiKreskami.find_first_of('|') + 1;
     int idUzytkownika;
     idUzytkownika = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
@@ -208,12 +206,9 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idAdresata)
 {
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
 
-    string wczytanaLinia = "";
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    string daneOstaniegoAdresataWPliku = "";
 
-    bool czyIstniejeAdresat = false;
-
-    int numerWczytanejLinii = 1;
     int numerUsuwanejLinii = 0;
     int numerLiniiWPlikuTekstowym = 1;
 
@@ -242,6 +237,8 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idAdresata)
                                 tymczasowyPlikTekstowy << endl << daneJednegoAdresataOddzielonePionowymiKreskami;
 
                 numerLiniiWPlikuTekstowym++;
+                daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+
             }
             else
             {
@@ -249,11 +246,18 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idAdresata)
                 numerLiniiWPlikuTekstowym++;
             }
         }
+
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
         usunPlik(NAZWA_PLIKU);
         zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU);
     }
+
+    if (daneOstaniegoAdresataWPliku != "")
+    {
+         idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+    }
+    else idOstatniegoAdresata =0;
 }
 

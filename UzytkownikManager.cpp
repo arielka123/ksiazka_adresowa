@@ -106,8 +106,8 @@ int UzytkownikManager::logowanieUzytkownika()
             return 0;
         }
     }
-
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+
     system("pause");
     return 0;
 }
